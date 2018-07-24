@@ -1,0 +1,439 @@
+%! TEX program = pdflatex
+
+
+
+
+\documentclass[12pt]{article}
+
+\usepackage[UTF8]{ctex}
+
+\usepackage{answers}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{definition}[2][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+
+\usepackage{titlesec}
+\usepackage{titletoc}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{A Daily Problem}%replace with the appropriate homework number
+\author{ly\\ %replace with your name
+Mathematic} %if necessary, replace with your course title
+ 
+\maketitle
+%Below is an example of the problem environment
+
+\tableofcontents
+%\titlecontents{section}  
+%              [3cm]  
+%              {\bf \large}%  
+%              {\contentslabel{2.5em}}%  
+%              {}%  
+%              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{3cm}}%  
+
+\titlecontents{section}  
+              [3cm]  
+              {\bf \large}%  
+              {\contentslabel{2.5em}}%  
+              {}%  
+              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{3cm}}%  
+\titlecontents{subsection}  
+              [4cm]  
+              {\bf \normalsize}%  
+              {\contentslabel{2.5em}}%  
+              {}%  
+              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{3cm}}%  
+
+
+
+\clearpage
+
+
+\section{函数极限与连续}
+
+\begin{problem}{1}
+    Let $\displaystyle f(x) = \prod_{k=2}^{n}\sqrt[k]{cosx}$, if $\displaystyle \lim_{x \to 0}\frac{1-f(x)}{x^2} = 10$, Find n. 
+\end{problem}
+
+
+\begin{solution}{1} \textbf{1}
+
+    We use the L'Hospital rule, we get:
+
+    \[
+        \lim_{x\to 0} \frac{1-f(x)}{x^2} = \lim_{x \to 0} \frac{(tanx+tan2x+\cdots+tannx)f(x)}{2x} = \frac{1}{2}\sum_{k=2}^{n}k
+        = \frac{(n-1)(n+2)}{4} = 10     
+    \]
+    thus $n = 6$.
+
+    Note: We can use that : if $f(x) = f_1(x)f_2(x)\cdots f_n(x)$, so $\displaystyle f'(x) = \sum_{k=1}^{n} \frac{f_{k}^{'}(x)}{f_k(x)} f(x) $.
+    
+\end{solution}
+
+\vspace{3cm}
+
+\begin{problem}{2}
+    Evaluate the limit:
+    \[
+        \lim_{n \to \infty} \frac{\sum_{k=1}^{n}\frac{6^k k!}{(2k+1)^k}}{\sum_{k=1}^{n} \frac{3^k k!}{k^k}}.
+    \]
+\end{problem}
+
+\begin{solution}{2} \textbf{2}
+
+    First use the ratio test to show that $\sum_{k=1}^{\infty}\frac{3^kk!}{k^k}$ diverges. Now you can apply the Stolz–Cesàro lemma. 
+    The limit should be $\frac{1}{\sqrt{e}}.$
+    
+\end{solution}
+
+
+\section{一元函数微积分}
+
+\subsection{一元函数微分学}
+
+\begin{problem}{3}
+设 $f(x)$ 在 $(1,+\infty)$ 上连续可微, 且存在 $L>0$ 使得对 $\forall x, y \in (0, +\infty)$ 都有
+\[
+\mid f'(x)-f'(y) \mid < L\mid x-y\mid
+\]
+证明: $(f'(x))^2 < 2Lf(x)$.
+
+\end{problem}
+
+\begin{solution}
+
+Waiting...
+\end{solution}
+
+\vspace{5cm}
+
+
+\pagebreak
+
+
+
+
+
+
+
+
+
+\subsection{一元函数积分学}
+
+\begin{problem}{3}
+
+    Suppose $ f: [0, 1] \to \mathbb{R} $ is continuous in $[0,1]$ and differentiable in $(0,1)$. Supoppse $f(0) = 0$ and 
+    $0<f'(x)\leq 1$ for all $x \in (0,1)$. 
+    \item (a)Prove that the function $\Phi (x) = (\int_{0}^{x} f(t)dt)^2 - \int_{0}^{x} f^3(t)dt$ is monotone.
+    \item (b)Find all functions $f$ such that
+        \[
+            (\int_{0}^{1} f(t) dt)^2 = \int_{0}^{1} f^3(t) dt.
+        \]
+    
+\end{problem}
+
+
+\begin{solution}{1} \textbf{1}\\
+    \item (a) 
+    \item (b) For $x>0$, $f(x) = \int_{0}^{x} f'(t)dt > 0$. \\
+        We can get $\Phi(0) = \Phi(1) = 0$, so $\Phi(x) = 0 \implies \Phi'(x) = 0 \implies 2\int_{0}^{x}f(t)dt = f^2 (x) \\
+        \implies f'(x) = 1 \implies f(x) = x + C, for C \in \mathbb{R} $.
+    
+\end{solution}
+
+\vspace{3cm}
+
+
+\section{多元向量代数与空间解析几何}
+
+
+\section{多元微积分}
+
+\subsection{多元函数微分学}
+
+
+\subsection{重积分}
+
+
+\subsection{曲线积分与曲面积分}
+
+
+\section{无穷级数}
+
+\begin{problem}{1}
+设 $(\lambda_n)_{n=1,2,\cdots}$ 是严格单调递增趋于无穷大的正数列。证明：若级数 $\displaystyle{ \sum_{n=1}^{+\infty}}\lambda_n a_n$ 收敛，则 $\displaystyle{\sum_{n=1}^{+\infty}}a_n$ 收敛。
+\end{problem}
+
+\begin{solution}{1} \textbf{1.}
+
+\begin{itemize}  
+
+	\item \textbf{解法一(构造法):} 我们令 $\displaystyle{A_n=\sum_{k=1}^{n}\lambda_k a_k}$, $\displaystyle{B_n = \sum_{k=1}^{n}a_k}$, $A_0=0$, 其中$n\geq1$, 则有:
+\[
+a_k = \frac{A_k - A_{k-1}}{\lambda_k} (k\geq1)
+\]
+
+\[
+\begin{aligned}
+B_n &= \sum_{k=1}^{n}a_k \\
+&= \sum_{k=1}^{n} \frac{A_k - A_{k-1}}{\lambda_k}\\
+&= \sum_{k=1}^{n-1} (\frac{1}{\lambda_k}-\frac{1}{\lambda_{k+1}}) A_k + \frac{A_n}{\lambda_n}
+\end{aligned}
+\]
+用为 $\displaystyle{\sum_{n=1}^{+\infty}} \lambda_n a_n$ 收敛, 所以$A_n$有界, 又:
+\[
+\sum_{n=1}^{+\infty}(\frac{1}{\lambda_n} - \frac{1}{\lambda_{n+1}}) = \frac{1}{\lambda_1}
+\]
+所以级数$\displaystyle{\sum_{n=1}^{\infty}}(\frac{1}{\lambda_n} - \frac{1}{\lambda_{n+1}})A_n$收敛. 由已知条件可知$\lambda_n \to +\infty(n\to\infty)$, 我们可以得到:
+\[
+\lim_{n\to\infty} \frac{A_n}{\lambda_n} = 0
+\]
+所以
+\[
+\begin{aligned}
+\sum_{n=1}^{+\infty} a_n 
+&= \lim_{n\to\infty} \sum_{k=1}^{n} (\frac{1}{\lambda_k}-\frac{1}{\lambda_{k+1}})A_k+\frac{A_n}{\lambda_n}
+&= \sum_{n=1}^{+\infty} (\frac{1}{\lambda_n} - \frac{1}{\lambda{n+1}})A_n
+\end{aligned}
+\]
+故级数$\displaystyle{\sum_{n=1}^{+\infty}}a_n$收敛, 得证.
+
+
+
+	\item \textbf{解法二(Abel判别法):} 我们令$A_n = \frac{1}{\lambda_n}(n\geq1)$, 由题意可知数列$A_n$单调递减且有界, 又级数$\displaystyle{\sum_{n=1}^{+\infty}}$收敛, 所以级数
+\[
+\sum_{n=1}^{+\infty}a_n = \sum_{n=1}^{+\infty}\lambda_n a_n \cdot{} A_n
+\]
+收敛.
+
+\end{itemize}
+\end{solution}
+
+\vspace{3cm}
+
+\begin{problem}{2}
+    求级数 $\displaystyle \sum_{n=1}^{+\infty} \frac{(-1)^n}{n \cdot \sqrt[n]{n}} (\frac{x}{2x+1})^n$ 的收敛域.
+\end{problem}
+
+\begin{solution}{2} \textbf{2.}
+
+    令 $\displaystyle t = \frac{x}{2x+1}$ ,考察 $\displaystyle \sum_{n=1}^{+ \infty} \frac{(-1)^n}{n \cdot \sqrt[n]{n}} t^n $ 的收敛域. 于是我们由根
+    值判别法可得:
+
+    \[
+        \begin{aligned}
+            \lim_{n \to \infty} \sqrt[n]{\left | \frac{(-1)^n}{n \cdot \sqrt[a]{n}} \right |} &= \lim_{n \to \infty} \frac{1}{n^{\frac{1}{n}}
+            \cdot n^{\frac{1}{n^2}}}  \\
+            &= \lim_{n \to \infty} \frac{1}{n^{\frac{1}{n} + \frac{1}{n^2}}} \\
+            &= \exp(\lim_{n \to \infty} -(\frac{1}{n} + \frac{1}{n^2}) \ln n) \\
+            &= 1
+        \end{aligned}
+    \]
+
+    当 $ x = -1 $ 时, $ \displaystyle \sum_{n=1}^{+ \infty} \frac{(-1)^n}{n \cdot \sqrt[n]{n}} (-1)^n = \sum_{n=1}^{n \to \infty} \frac{1}{n \cdot \sqrt[n]{n}} $,
+    而 $ \displaystyle \lim_{n \to \infty} \frac{\frac{1}{n \cdot \sqrt[n]{n}}}  {\frac{1}{n}} = \lim_{n \to \infty} \frac{1}{\sqrt{n}} = 1 $, 从而该级数发散;
+
+    类似可以得到当 $ x = 1 $ 时, $ \displaystyle\sum_{n=1}^{+\infty} \frac{(-1)^n}{n \cdot \sqrt[n]{n}} \cdot (1)^n = \sum_{n=1}^{+\infty}  \frac{(-1)^n}{n \cdot 
+    \sqrt[n]{n}} $ 收敛. 
+    
+    所以级数 $ \displaystyle\sum_{n=1}^{+\infty} \frac{(-1)^n}{n \cdot \sqrt[n]{n}} t^n $ 的收敛域为 $ -1 < x \leq 1 $. 从而有
+    $ -1 < \frac{x}{2x+1} \leq 1 $, 解该不等式可得 $ x \leq -1 $ 或 $ x > -\frac{1}{3} $. 所以原级数的收敛域为: $ (-\infty, -1] \cup (-\frac{1}{3}, +\infty)$.
+
+\end{solution}
+
+\vspace{3cm}
+
+
+
+\begin{problem}{3}
+    设 $f(x)$ 为周期为 $2\pi$ 的连续函数, 令
+    \[
+        F(x) = \frac{1}{2h} \int_{x-h}^{x+h} f(t) dt.  
+    \]
+    设 $f(x)$ 的Fourier系数为 $a_0, a_n, b_n(n = 1, 2, \cdots)$, 试求 $F(x)$ 的Fourier系数 $A_0, A_n, B_n(n = 1, 2, \dots)$.
+
+
+\end{problem}
+
+
+\begin{solution}{3} \textbf{3}
+    
+\end{solution}
+
+
+\vspace{3cm}
+
+
+
+\begin{problem}{4}
+    求 $ \displaystyle \sum_{n=1}^{10^9} n^{-\frac{2}{3}} $ 的整数部分.
+\end{problem}
+
+\begin{solution} \textbf{4}
+
+    记 $I = \sum_{n=1}^{10^9} n^{- \frac{2}{3}}$ , 则由积分与级数之间的关系有:
+    \[
+        I > \int_{1}^{10^9 + 1} x^{-\frac{2}{3}}dx = 3(\sqrt[3]{1 + 10^9} - 1) > 3(10^3 -1).    
+    \]
+    \[
+        \begin{aligned}
+        I - 1 &= \sum_{2}^{10^9} n^{-\frac{2}{3}}dx < \int_{1}^{10^9} x^{-\frac{2}{3}}dx   \\
+        &= 3x^{\frac{1}{3}} \Big |_{1}^{10^9} = 3(10^3 -1).
+        \end{aligned}
+    \]
+
+    即 $I < 3(10^3 -1) + 1$ , 所以 $[I] = 3(10^3 - 1) = 2997$.
+\end{solution}
+
+\vspace{3cm}
+
+
+
+\pagebreak
+
+
+
+
+\section{微分方程}
+
+
+\section{Linear Algebra}
+
+
+
+\section{真题}
+
+
+
+
+
+\section{Others}
+
+
+\begin{problem}{1}
+证明Cauthy-Schwarz不等式:
+\[
+\boldsymbol{\mid<a,b>\mid \leq \parallel a \parallel\parallel b \parallel}
+\]
+
+其中 $<\cdot,\cdot>$ 为内积运算.
+\end{problem}
+
+\begin{solution}{2}
+Cauthy-Schwarz不等式的另一种形式:
+\[
+\sum_{k=1}^{n} a_kb_k \leq \sum_{k=1}^n a{_k^2} \sum_{k=1}^{n} b{_k^2}
+\]
+我们令:
+\[
+A = \sum_{k=1}^{n} a{_k^2}, 
+B = \sum_{k=1}^{n} b{_k^2},
+C = \sum_{k=1}^{n} a_kb_k
+\]
+我们只需证明:
+\[
+C^2 \leq AB
+\]
+考虑到: $(a+b)^2 \geq 0$ , 有:
+\[
+0 \leq \sum_{k=0}^n (a_k+tb_k)^2 = A + 2tC + t^2B
+\]
+当 $B = 0$ 时, 显然 $C = AB$.
+当 $B \neq 0$ 时, 由 $\Delta <0$, 可得:
+\[
+4C^2 - 4AB < 0
+\]
+\[
+C^2 < AB
+\]
+综上所述:
+\[
+C^2 \leq AB
+\]
+得证.
+\end{solution}
+
+
+\vspace{2cm}
+
+
+
+\begin{problem}{6}
+\begin{enumerate}[label=\alph*)]
+    \item Suppose an entire function $f$ is bounded by $M$ along $|z|=R$. Show that the coefficients $C_k$ in its power series expansion about $0$ satisfy
+    \[
+    |C_k|\leq\frac{M}{R^k}.
+    \]
+    \item Suppose a polynomial is bounded by $1$ in the unit disc. Show that all its coefficients are bounded by 1.
+\end{enumerate}
+\end{problem}
+
+%Below is the solution environment
+\begin{solution}{}
+Part a): Since $f$ is an entire function it can be expressed as an infinite power series, i.e.
+\[
+f(z)=\sum_{k=0}^\infty\frac{f^{(k)}(0)}{k!}z^k=\sum_{k=0}^\infty C_kz^k.
+\]
+If we recall Cauchy's Integral we have
+\[
+f(z)=\frac{1}{2\pi i}\int_\gamma\frac{f(w)}{w-z}\ dw,
+\]
+carefully notice that $\frac{1}{w-z}=\frac{1}{w}\cdot\frac{1}{1-\frac{z}{w}}$ can be written as a geometric series. We have
+
+%The align environment with no label
+\begin{align*}
+\frac{1}{2\pi i}\int_\gamma\frac{f(w)}{w-z}\ dw &=\frac{1}{2\pi i}\int_\gamma\left\lbrace\frac{f(w)}{w}\cdot\left(\frac{1}{1-\frac{z}{w}}\right) \right\rbrace\ dw\\[8pt]
+&=\frac{1}{2\pi i}\int_\gamma\left\lbrace\frac{f(w)}{w}\cdot\left(1+\frac{z}{w}+\frac{z^2}{w^2}+\frac{z^3}{w^3}+\cdots\right) \right\rbrace\ dw\\[8pt]
+&=\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w}\ dw\right)z^0+\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^2}\ dw\right)z^1+\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^3}\ dw\right)z^2\cdots
+\end{align*}
+Now take the modulus of $C_k$ to get
+\[
+|C_k|=\left\lvert\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^{k+1}}\ dw \right\rvert\leq\frac{1}{2\pi}\int_\gamma\frac{|f(w)|}{|w^{k+1}|}\ |dw|\leq \frac{M}{2\pi}\int_\gamma\frac{|dw|}{|w^{k+1}|}
+\]
+Then integrate along $\gamma(\theta)=Re^{i\theta}$ for $\theta\in [0,2\pi]$ to get
+\[
+|C_k|\leq \frac{M}{2\pi}\int_0^{2\pi}\frac{|iRe^{i\theta}\ d\theta|}{|R^{k+1}e^{ik\theta}|}=\frac{M}{2\pi\cdot R^k}\int_0^{2\pi}\ d\theta=\frac{M}{R^k}.
+\]
+Hence, $|C_k|\leq \frac{M}{R^k}$.
+\end{solution}
+\pagebreak
+
+\end{document}

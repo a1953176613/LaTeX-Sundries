@@ -1,0 +1,112 @@
+%! TEX program = pdflatex
+
+\documentclass[12pt]{article}
+
+\usepackage{answers}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{definition}[2][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}[2][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Mathematic Analysis Problem}%replace with the appropriate homework number
+\author{ly\\ %replace with your name
+Mathematic Analysis} %if necessary, replace with your course title
+ 
+\maketitle
+%Below is an example of the problem environment
+\begin{problem}{1}
+\begin{enumerate}[label=\alph*)]
+    \item Suppose an entire function $f$ is bounded by $M$ along $|z|=R$. Show that the coefficients $C_k$ in its power series expansion about $0$ satisfy
+    \[
+    |C_k|\leq\frac{M}{R^k}.
+    \]
+    \item Suppose a polynomial is bounded by $1$ in the unit disc. Show that all its coefficients are bounded by 1.
+\end{enumerate}
+\end{problem}
+
+%Below is the solution environment
+\begin{solution}{}
+Part a): Since $f$ is an entire function it can be expressed as an infinite power series, i.e.
+\[
+f(z)=\sum_{k=0}^\infty\frac{f^{(k)}(0)}{k!}z^k=\sum_{k=0}^\infty C_kz^k.
+\]
+If we recall Cauchy's Integral we have
+\[
+f(z)=\frac{1}{2\pi i}\int_\gamma\frac{f(w)}{w-z}\ dw,
+\]
+carefully notice that $\frac{1}{w-z}=\frac{1}{w}\cdot\frac{1}{1-\frac{z}{w}}$ can be written as a geometric series. We have
+
+%The align environment with no label
+\begin{align*}
+\frac{1}{2\pi i}\int_\gamma\frac{f(w)}{w-z}\ dw &=\frac{1}{2\pi i}\int_\gamma\left\lbrace\frac{f(w)}{w}\cdot\left(\frac{1}{1-\frac{z}{w}}\right) \right\rbrace\ dw\\[8pt]
+&=\frac{1}{2\pi i}\int_\gamma\left\lbrace\frac{f(w)}{w}\cdot\left(1+\frac{z}{w}+\frac{z^2}{w^2}+\frac{z^3}{w^3}+\cdots\right) \right\rbrace\ dw\\[8pt]
+&=\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w}\ dw\right)z^0+\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^2}\ dw\right)z^1+\left(\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^3}\ dw\right)z^2\cdots
+\end{align*}
+Now take the modulus of $C_k$ to get
+\[
+|C_k|=\left\lvert\frac{1}{2\pi i}\int_\gamma \frac{f(w)}{w^{k+1}}\ dw \right\rvert\leq\frac{1}{2\pi}\int_\gamma\frac{|f(w)|}{|w^{k+1}|}\ |dw|\leq \frac{M}{2\pi}\int_\gamma\frac{|dw|}{|w^{k+1}|}
+\]
+Then integrate along $\gamma(\theta)=Re^{i\theta}$ for $\theta\in [0,2\pi]$ to get
+\[
+|C_k|\leq \frac{M}{2\pi}\int_0^{2\pi}\frac{|iRe^{i\theta}\ d\theta|}{|R^{k+1}e^{ik\theta}|}=\frac{M}{2\pi\cdot R^k}\int_0^{2\pi}\ d\theta=\frac{M}{R^k}.
+\]
+Hence, $|C_k|\leq \frac{M}{R^k}$.
+\end{solution}
+
+
+\vspace{3cm}
+
+\begin{problem}{2}
+    Prove that $\sin^2(x)<x\sin(\sin x)$ for all $x\in (0,90^\circ).$
+\end{problem}
+
+\begin{solution}{2} \textbf{ }
+
+    $ \forall u\in (0,\pi/2), \; \varphi_u=\frac {\sin u }u\Rightarrow~ \varphi'_u=\frac {u-\tan u}{u^2\sin u}<0; $
+
+$\sin u< u\Rightarrow~\varphi_u<\varphi(\sin u)\Rightarrow~\boxed{\sin^2u<u\sin(\sin u)}.$
+\end{solution}
+
+\vspace{3cm}
+
+
+
+\pagebreak
+
+\end{document}
