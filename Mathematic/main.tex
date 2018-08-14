@@ -421,6 +421,21 @@ Waiting...
     \]
 \end{solution}
 
+\begin{problem}{6}
+证明:$\int_1^a f(x^2+\frac{a^2}{x^2})\frac{dx}{x} = \int_1^a f(x+\frac{a^2}{x})\frac{dx}{x}.$
+\end{problem}
+
+\begin{solution}{6} \textbf{6}
+\[
+\begin{aligned}
+	\int_1^a f(x^2 + \frac{a^2}{x^2})\frac{dx}{x} &= \int_1^{\sqrt{a}} f(x^2+\frac{a^2}{x^2})\frac{dx}{x} + \int_{\sqrt{a}}^1 f(x^2+\frac{a^2}{x^2})\frac{dx}{x} \\ &\stackrel{u=\frac{a}{x}}\implies \int_1^{\sqrt{a}} f(x^2+\frac{a^2}{x^2})\frac{dx}{x} + \int_1^{\sqrt{a}}f(u^2+\frac{a^2}{u^2})\frac{du}{u} \\
+&=2\int_1^{\sqrt{a}} f(x^2+\frac{a^2}{x^2})\frac{dx}{x}\\
+&\stackrel{t=x^2}\implies \int_1^a f(t+\frac{a^2}{t})\frac{dt}{t}\\
+&=\int_1^a f(x+\frac{a^2}{x})\frac{dx}{x}
+\end{aligned}
+\]
+\end{solution}
+
 
 \section{多元向量代数与空间解析几何}
 
