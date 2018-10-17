@@ -16,6 +16,11 @@
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{bm}     % 数学公式加粗
+
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+
+\usepackage{titlesec}
+\usepackage{titletoc}
  
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -44,10 +49,7 @@
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 
-\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
 
-\usepackage{titlesec}
-\usepackage{titletoc}
  
 \begin{document}
  
@@ -114,14 +116,14 @@ Mathematic} %if necessary, replace with your course title
 \begin{problem}{2}
     Evaluate the limit:
     \[
-        \lim_{n \to \infty} \frac{\sum_{k=1}^{n}\frac{6^k k!}{(2k+1)^k}}{\sum_{k=1}^{n} \frac{3^k k!}{k^k}}.
+        \displaystyle \lim_{n \to \infty} \frac{\sum_{k=1}^{n}\frac{6^k k!}{(2k+1)^k}}{\sum_{k=1}^{n} \frac{3^k k!}{k^k}}.
     \]
 \end{problem}
 
 \begin{solution}{2} \textbf{2}
 
-    First use the ratio test to show that $\sum_{k=1}^{\infty}\frac{3^kk!}{k^k}$ diverges. Now you can apply the Stolz–Cesàro lemma. 
-    The limit should be $\frac{1}{\sqrt{e}}.$
+    First use the ratio test to show that $\displaystyle\sum_{k=1}^{\infty}\frac{3^kk!}{k^k}$ diverges. Now you can apply the \\
+    Stolz–Cesàro lemma. The limit should be $\displaystyle\frac{1}{\sqrt{e}}.$
     
 \end{solution}
 
@@ -166,11 +168,11 @@ Waiting...
     \]
     又$\cosh x$在$\left(0, 1\right)$上递增, 所以有$y = \xi < x$.
 
-    由$\cosh x = \frac{e^x + e^{-x}}{2} > \frac{2\sqrt{e^x\cdot e^{-x}}}{2} = 1$, 所以有:
+    由$\displaystyle\cosh x = \frac{e^x + e^{-x}}{2} > \frac{2\sqrt{e^x\cdot e^{-x}}}{2} = 1$, 所以有:
     \[
         \int_0^x \cosh x \mathrm{d}x > \int_0^x 1\mathrm{d}x = x
     \]
-    用$\frac{x}{2}$代替$x$可得到$\sinh \frac{x}{2} > \frac{x}{2}$, 两边同时乘上一个$\cosh x$, 得:
+    用$\displaystyle\frac{x}{2}$代替$x$可得到$\displaystyle\sinh \frac{x}{2} > \frac{x}{2}$, 两边同时乘上一个$\cosh x$, 得:
     \[
         \cosh x \sinh x > \frac{x}{2}\cosh x    
     \]
@@ -207,7 +209,7 @@ Waiting...
 
     Suppose $ f: [0, 1] \to \mathbb{R} $ is continuous in $[0,1]$ and differentiable in $(0,1)$. Supoppse $f(0) = 0$ and 
     $0<f'(x)\leq 1$ for all $x \in (0,1)$. 
-    \item (a)Prove that the function $\Phi (x) = (\int_{0}^{x} f(t)dt)^2 - \int_{0}^{x} f^3(t)dt$ is monotone.
+    \item (a)Prove that the function $\displaystyle\Phi (x) = (\int_{0}^{x} f(t)dt)^2 - \int_{0}^{x} f^3(t)dt$ is monotone.
     \item (b)Find all functions $f$ such that
         \[
             (\int_{0}^{1} f(t) dt)^2 = \int_{0}^{1} f^3(t) dt.
@@ -239,8 +241,8 @@ Waiting...
 \begin{solution}{2} \textbf{2}
 
     \begin{itemize}
-        \item \textbf{解法一:} 令 $F(x) = \int_a^x tf(t)\mathrm{d}t - \frac{a+b}{2}\int_a^xf(t)\mathrm{d}t.$ \\
-            则$F(a) = 0,$ 于是有\\
+        \item \textbf{解法一:} 令 $F(x) = \int_a^x tf(t)\mathrm{d}t - \frac{a+b}{2}\int_a^xf(t)\mathrm{d}t.$ 则$F(a) = 0,$ 于是有
+        
             \[
                 \begin{aligned}
                     F'(x) &= \frac{1}{2} \Big[ (x-a)f(x) - \int_a^x f(x)\mathrm{d}x \Big] \\
@@ -392,11 +394,11 @@ Waiting...
 
 \begin{solution}{5} \textbf{5}
     
-    由欧拉公式$e^{ix} = \cos x + i\sin x$, 则$e^{-ix} = \cos x - i\sin x$. 由以上两个公式, 相减可得
-    \begin{equation} \label{}
+    由欧拉公式$e^{ix} = \cos x + i\sin x$, 则$\displaystyle e^{-ix} = \cos x - i\sin x$. 由以上两个公式, 相减可得
+    \begin{equation} \label{eq:01}
         sinx = \frac{e^{ix} - e^{-ix}}{2}    
     \end{equation}
-    因此, $\sin(2n+1) = \frac{e^{(2n+1)ix} - e^{-(2n+1)ix}}{2}$. 考虑到被积函数为$\frac{\sin(2n+1)}{\sin x}$, 所以
+    因此, $\displaystyle\sin(2n+1) = \frac{e^{(2n+1)ix} - e^{-(2n+1)ix}}{2}$. 考虑到被积函数为$\displaystyle\frac{\sin(2n+1)}{\sin x}$, 所以
     \[
         \begin{aligned}
             \frac{\sin(2n+1)x}{\sin x} &= \frac{\frac{e^{(2n+1)ix}-e^{-(2n+1)ix}}{2}}{\frac{e^{ix} - e^{-ix}}{2}} \\
@@ -422,7 +424,7 @@ Waiting...
 \end{solution}
 
 \begin{problem}{6}
-证明:$\int_1^a f(x^2+\frac{a^2}{x^2})\frac{dx}{x} = \int_1^a f(x+\frac{a^2}{x})\frac{dx}{x}.$
+证明:$\displaystyle\int_1^a f(x^2+\frac{a^2}{x^2})\frac{dx}{x} = \int_1^a f(x+\frac{a^2}{x})\frac{dx}{x}.$
 \end{problem}
 
 \begin{solution}{6} \textbf{6}
@@ -435,6 +437,42 @@ Waiting...
 \end{aligned}
 \]
 \end{solution}
+
+\vspace{3cm}
+
+\begin{problem}{7}
+    计算 $\displaystyle\int_0^1 \frac{\ln(1+x)}{1+x^2} \mathrm{d}x.$
+\end{problem}
+
+\begin{solution}{7} \textbf{7}
+
+    \begin{itemize}
+        \item \textbf{解法一(含参积分):} 考虑积分$\displaystyle I(\alpha) = \int_0^1 \frac{\ln(1+\alpha x)}{1+x^2}\mathrm{d}x.$
+
+        \item \textbf{解法二(换元法):} 令$x = \tan t$, 则$dx = \sec^2 t \mathrm{d}t$.
+        \[
+                \int_0^1 \frac{\ln(1+x)}{1+x^2} \mathrm{d}x = \int_0^{\frac{\pi}{4}} \ln(1+\tan t) \mathrm{d}t
+        \]
+        又
+        \[
+            \begin{aligned}
+                \int_0^{\frac{\pi}{4}} \ln(1+\tan x) \mathrm{d}x &\stackrel{t = \frac{\pi}{4} - x}{\implies} \int_0^{\frac{\pi}{4}}\ln(1+\tan(\frac{\pi}{4} - t)) \mathrm{d}t\\
+                &= \int_0^{\frac{\pi}{4}} \ln(1+\frac{1 - \tan x}{1 + \tan x})\mathrm{d}x\\
+                &= \int_0^{\frac{\pi}{4}} \ln(\frac{2}{1+\tan x}) \mathrm{d}x
+            \end{aligned}    
+        \]
+        所以有
+        \[
+            \begin{aligned}
+                \int_0^1 \frac{\ln(1+x)}{1+x^2} \mathrm{d}x &= \frac{1}{2}\left[ \int_0^{\frac{\pi}{4}}\ln(1+\tan x)\mathrm{d}x + \int_0^{\frac{\pi}{4}}\ln(\frac{2}{1+\tan x}\mathrm{d}x) \right]\\
+                &= \frac{1}{2}\int_0^{\frac{\pi}{4}} 2\mathrm{d}x \\
+                &= \frac{\pi}{8}\ln2
+            \end{aligned}
+        \]
+    \end{itemize}
+\end{solution}
+
+
 
 
 \section{多元向量代数与空间解析几何}
